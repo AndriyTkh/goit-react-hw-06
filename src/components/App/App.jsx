@@ -38,19 +38,9 @@ export default function App() {
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm addContact={addContact} />
+      <ContactForm />
       <SearchBox searchValue={searchInput} setSearch={setSearchInput} />
-      <ContactList
-        contacts={FilterContacts(contacts, searchInput)}
-        deleteContact={deleteContact}
-      />
+      <ContactList />
     </div>
-  );
-}
-
-function FilterContacts(contacts, searchWord) {
-  return contacts.filter(
-    (contact) =>
-      contact.name.toLowerCase().indexOf(searchWord.toLowerCase()) !== -1
   );
 }
