@@ -1,6 +1,14 @@
 import css from "./Contact.module.css";
+import { useDispatch } from "react-redux";
+import { deleleContact } from "../../redux/contactSlice";
 
-export default function Contact({ data: { name, number, id }, deleteContact }) {
+export default function Contact({ data: { name, number, id } }) {
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(deleleContact(id));
+  };
+
   return (
     <>
       <ul className={css.bioList}>
@@ -21,7 +29,7 @@ export default function Contact({ data: { name, number, id }, deleteContact }) {
         type="button"
         className={css.deleteBtn}
         onClick={() => {
-          deleteContact(id);
+          handleDelete(id);
         }}
       >
         Delete

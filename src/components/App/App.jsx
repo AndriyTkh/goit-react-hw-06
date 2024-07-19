@@ -18,28 +18,16 @@ export default function App() {
       ];
     }
   });
-  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
-  const addContact = (newContact) => {
-    setContacts(() => {
-      return [...contacts, newContact];
-    });
-  };
-  const deleteContact = (id) => {
-    setContacts(() => {
-      return contacts.filter((contact) => contact.id !== id);
-    });
-  };
-
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm />
-      <SearchBox searchValue={searchInput} setSearch={setSearchInput} />
+      <SearchBox />
       <ContactList />
     </div>
   );

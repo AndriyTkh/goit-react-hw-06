@@ -22,11 +22,12 @@ const init = {
 };
 
 export default function ContactForm() {
+  const dispatch = useDispatch();
   const nameId = useId();
   const numberId = useId();
 
   const handleSubmit = (values, actions) => {
-    dispatch;
+    dispatch(addContact(values.username, values.number));
     actions.resetForm();
   };
 
